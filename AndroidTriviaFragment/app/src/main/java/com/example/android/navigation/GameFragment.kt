@@ -50,7 +50,7 @@ class GameFragment : Fragment() {
     // All questions must have four answers.  We'd want these to contain references to string
     // resources so we could internationalize. (Or better yet, don't define the questions in code...)
     private val questions: MutableList<Question> = mutableListOf(
-        /*Question(text = "What is Android Jetpack?",
+        Question(text = "What is Android Jetpack?",
                 answers = listOf("All of these", "Tools", "Documentation", "Libraries")),
         Question(text = "What is the base class for layouts?",
                 answers = listOf("ViewGroup", "ViewSet", "ViewCollection", "ViewRoot")),
@@ -73,7 +73,27 @@ class GameFragment : Fragment() {
         Question(text = "How do you enable your project to use navigation components?",
                 answers = listOf("Add dependencies for navigation-fragment-ktx and navigation-ui-ktx in the build.gradle (module) file.", "Make sure every Activity class extends the class NavigationActivity.", "Use the NavigationController class as the launch Activity.", "Add <uses-navigation> to the Android manifest file." )),
         Question(text = "Where are the possible routes through your app defined?",
-                answers = listOf("In a file (often called navigation.xml) in the res > navigation folder.", "In a file (often called navigation.xml) in the res > layout folder.", "In a file (often called navigation.xml) in the app > navigation folder.",  "In the android-manifest.xml file in the <navigation> element.")),*/
+                answers = listOf("In a file (often called navigation.xml) in the res > navigation folder.", "In a file (often called navigation.xml) in the res > layout folder.", "In a file (often called navigation.xml) in the app > navigation folder.",  "In the android-manifest.xml file in the <navigation> element.")),
+
+        Question(
+            text = "How do you enable your project to use navigation components?",
+            answers = listOf(
+                "Add dependencies for navigation-fragment-ktx and navigation-ui-ktx in the build.gradle (module) file.",
+                "Make sure every Activity class extends the class NavigationActivity.",
+                "Use the NavigationController class as the launch Activity.",
+                "Add <uses-navigation> to the Android manifest file."
+            ),
+        ),
+        Question(
+            text = "Where are the possible routes through your app defined?",
+            answers = listOf(
+                "In a file (often called navigation.xml) in the res > navigation folder.",
+                "In a file (often called navigation.xml) in the res > layout folder.",
+                "In a file (often called navigation.xml) in the app > navigation folder.",
+                "In the android-manifest.xml file in the <navigation> element."
+            ),
+        ),
+
         Question(
             text = "Which of the following statements about the NavHostFragment are true? Select all that apply.",
             answers = listOf(
@@ -120,25 +140,92 @@ class GameFragment : Fragment() {
         Question(text = "When users navigate through an app, sometimes they want to retrace their steps back through the screens they have already visited. However, you can use the popUpTo and popUpToInclusive attributes of an action to modify the path backward through the app.\n" +
 
 "Assume the following:\n" +
-
+                "\n" +
 "fragmentA is connected to fragmentB by action_FragmentA_to_FragmentB.\n" +
+                "\n" +
 "fragmentB is connected to fragmentC by action_FragmentB_to_FragmentC.",
             answers = listOf("For action_FragmentA_to_FragmentB, set popUpTo to none and popUpToInclusive to no value. (You can omit both attributes.) For action_FragmentB_to_FragmentC, set popUpTo to fragmentA and popUpToInclusive to false.", "For action_FragmentA_to_FragmentB, set popUpTo to none and popUpToInclusive to no value. (You can omit both attributes.) For action_FragmentB_to_FragmentC, set popUpTo to fragmentA and popUpToInclusive to true.", "For action_FragmentA_to_FragmentB, set popUpTo to fragmentA and popUpToInclusive to true. For action_FragmentB_to_FragmentC, set popUpTo to fragmentA and popUpToInclusive to true.", "For action_FragmentA_to_FragmentB, set popUpTo to fragmentB and popUpToInclusive to no value. For action_FragmentB_to_FragmentC, set popUpTo to fragmentA and popUpToInclusive to true."),
             hasPictures =  true, pictureResource = R.drawable.question8, continuedText = "The user navigates from fragmentA to fragmentB to fragmentC, then taps the system Back button. In this situation, let's say you want the app to navigate back to fragmentA (instead of fragmentB). What's the correct way to set the popUpTo and popUpToInclusive attributes?"),
-        /*Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")),
-        Question(text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>"))*/
+        Question(
+            text = "Assume that the action action_headlinesFragment_to_newsArticle in the destination graph has a popUpTo value of newsFragment:",
+            answers = listOf(
+                "If popUpToInclusive is true: Android navigates out of the app because there is nothing left in the back stack for this app.",
+                "If popUpToInclusive is false: The app goes back to the news home screen.",
+                "If popUpToInclusive is true: The app goes back to the news home screen.",
+                "If popUpToInclusive is false: The app goes back to the headlines screen."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 2,
+            hasPictures = true,
+            pictureResource = R.drawable.question9,
+            continuedText = "Assume that the user opens the app and navigates through the screens in the following sequence (without using the Back button):\n" +
+                    "\n" +
+                    "Open app into News home > Headlines > News details\n" +
+                    "\n" +
+                    "When the user is viewing the News detail screen, what happens If they tap the system Back button at the bottom of the screen?\n" +
+                    "\n" +
+                    "Select all that apply (remembering that popUpTo is newsFragment)."
+        ),
+        Question(
+            text = "Where do you define the items for a menu?",
+            answers = listOf(
+                "In a menu_name.xml file in the res > menu folder, add an <item> tag for each menu item. Create separate XML files for each separate menu.",
+                "It depends on where the menu will be shown. For a navigation drawer menu, add an <item> tag for each menu item in the menu.xml file in res > drawer folder. For the options menu, add an <item> tag for each menu item in the menu.xml file in res > options folder.",
+                "In the layout file for the Fragment or Activity that displays the menu, add a <menu> tag that contains <item> tags for each item.",
+                "In the android_manifest.xml file, add a <menus> tag that contains a <menu> tag for each menu. For each <menu> tag, add an <item> tag for each menu item."
+            )
+        ),
+        Question(
+            text = "To enable the options menu in your app, you need to define the menu items. Then what do you need to do in the Activity or Fragment where the options menu is to appear?\n" +
+                    "\n" +
+                    "Select all that apply:",
+            answers = listOf(
+                "Call setHasOptionsMenu(true) in onCreate() for an Activity, or in onCreateView() for a Fragment.",
+                "Implement onCreateOptionsMenu() in the Activity or Fragment to create the menu.",
+                "Implement onOptionsItemSelected() in the Activity or Fragment to determine what happens when a user selects a menu item in the options menu.",
+                "Set the onClick attribute in the menu's XML file to onShowOptionsMenu, unless you are implementing a custom onClick listener for the options menu, in which case specify the name of the custom onClick listener instead."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 3
+        ),
+
+        Question(
+            text = "What do you need to do to enable a navigation drawer in your app? You can assume that your project is using the navigation graph and that you've already defined the menu items.\n" +
+                    "\n" +
+                    "Select all that apply:",
+            answers = listOf(
+                "Use <DrawerLayout> as the root view in the relevant layout file, and add a <NavigationView> tag to that layout.",
+                "In the <NavigationView> in the layout, set the android:menu attribute to the navigation drawer menu.",
+                "In the navigation XML file, make sure that the navigation menu has an ID.",
+                "Use <Navigation> as the root view in the relevant layout file, and add a <NavigationView> tag to that layout."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 2
+        ),
+        Question(
+            text = "Following on from the previous question, you need to write some code to enable the navigation drawer to be displayed when the user swipes in from the left side of the screen?\n" +
+                    "\n" +
+                    "In onCreate() within the Activity that creates the navigation controller, what is the right code to add?",
+            answers = listOf(
+                "NavigationUI.setupWithNavController(navigationView, navigationController)",
+                "NavigationUI.setupWithNavController(navigationLayoutID navigationMenuID)",
+                "NavigationDrawer.setupWithNavInterface(navigationView, navigationController)",
+                "NavigationDrawer.setupWithNavController(navigationView, navigationMenuID)"
+            )
+        ),
+        Question(
+            text = "How do you add support for the Up button at the top of the screen to enable users to get back to the app's home screen from anywhere in the app? What do you need to do in the relevant Activity?\n" +
+                    "\n" +
+                    "Select all that apply:",
+            answers = listOf(
+                "Link the navigation controller to the app bar using NavigationUI.setupActionBarWithNavController(context,navigationController)",
+                "Override onSupportNavigateUp() method to call navigateUp() on the navigation controller.",
+                "In the res > menu folder, create the up_menu.xml file.",
+                "In the navigation graph, make sure the starting Fragment has an ID of HomeFragment."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 2
+        )
     )
 
     private lateinit var binding: FragmentGameBinding
@@ -147,8 +234,10 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = Math.min((questions.size + 1) / 2, 5)
+    private val numQuestions = Math.min((questions.size + 1) / 2, 10)
     private var isMulti: Boolean = false
+    private val questionsAsked: MutableList<Question> = mutableListOf()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -264,11 +353,16 @@ class GameFragment : Fragment() {
     // Sets the question and randomizes the answers.  This only changes the data, not the UI.
     // Calling invalidateAll on the FragmentGameBinding updates the data.
     private fun setQuestion() {
+
+
         binding.checkBoxLinearLayout.children.forEach { child ->
             val thisChild = child as CheckBox
             thisChild.isChecked = false
         }
+
         currentQuestion = questions[questionIndex]
+
+
         // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
         // and shuffle them

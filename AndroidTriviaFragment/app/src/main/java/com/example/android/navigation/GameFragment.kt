@@ -225,6 +225,37 @@ class GameFragment : Fragment() {
             ),
             QuestionType.MULTI_CHOICE,
             numberOfCorrectAnswersForMulti = 2
+        ),
+        Question(
+            text = "If you pass arguments from Fragment A to Fragment B without using Safe Args to make sure your arguments are type-safe, which of the following problems can occur that might cause the app to crash when the app runs? Select all that apply.",
+            answers = listOf(
+                "Fragment B requests data that Fragment A doesn't send to it.",
+                "Fragment A might send data that's a different type than Fragment B needs. For example, Fragment A might send a string but Fragment B requests an integer, resulting in a return value of zero.",
+                "Fragment A might send data that Fragment B hasn't requested.",
+                "Fragment A uses different parameter names than Fragment B requests."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 3
+        ),
+        Question(
+            text = "What does the Safe Args Gradle plugin do? Select all that apply:",
+            answers = listOf(
+                "Generates simple object and builder classes for type-safe access to arguments specified for destinations and actions.",
+                "Makes it so you don't need to use Android bundles in your code.",
+                "Generates a method for each action that you've defined in the navigation graph.",
+                "Creates Navigation classes that you can edit to simplify the passing of parameters between fragments."
+            ),
+            QuestionType.MULTI_CHOICE,
+            numberOfCorrectAnswersForMulti = 3
+        ),
+        Question(
+            text = "What's an implicit intent?",
+            answers = listOf(
+                "A task that your app initiates without knowing which app or Activity will handle the task.",
+                "A task that your app initiates in one Fragment in your app, and that's completed in another Fragment.",
+                "A task that your app always completes by showing the user a chooser.",
+                "An implicit intent is the same thing as the action that you set between destinations in the navigation graph."
+            )
         )
     )
 
@@ -236,7 +267,7 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private val numQuestions = Math.min((questions.size + 1) / 2, 10)
     private var isMulti: Boolean = false
-    private val questionsAsked: MutableList<Question> = mutableListOf()
+
 
 
     override fun onCreateView(
@@ -280,11 +311,11 @@ class GameFragment : Fragment() {
                             binding.invalidateAll()
                         } else {
                             // We've won!  Navigate to the gameWonFragment.
-                            findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                            findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(questionIndex, numQuestions))
                         }
                     } else {
                         // Game over! A wrong answer sends us to the gameOverFragment.
-                        findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
 
                     }
                 }
@@ -314,10 +345,11 @@ class GameFragment : Fragment() {
                             setQuestion()
                             binding.invalidateAll()
                         } else {
-                            findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                            findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(questionIndex, numQuestions))
+
                         }
                     } else {
-                        findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
 
                     }
 

@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+    package com.example.android.navigation
 
- package com.example.android.navigation
 
-
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -24,6 +24,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.FragmentTitleBinding
+import timber.log.Timber
 
 class TitleFragment : Fragment() {
 
@@ -35,7 +36,26 @@ class TitleFragment : Fragment() {
         binding.playButton.setOnClickListener { it.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment()) }
 
         setHasOptionsMenu(true)
+
+        Timber.i("onCreateView Called")
+
         return binding.root
+        
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Timber.i("onAttach Called")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.i("onCreateCalled")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Timber.i("onViewCreated Called")
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -43,10 +63,43 @@ class TitleFragment : Fragment() {
         inflater.inflate(R.menu.options_menu, menu)
     }
 
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume Called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause Called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop Called")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Timber.i("onDestroyView Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Called")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Timber.i("onDetach Called")
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
-
-
 }

@@ -256,6 +256,15 @@ class GameFragment : Fragment() {
                 "A task that your app always completes by showing the user a chooser.",
                 "An implicit intent is the same thing as the action that you set between destinations in the navigation graph."
             )
+        ),
+        Question(
+            text = "What is the activity lifecycle? When does it begin and end?",
+            answers = listOf(
+                "The activity lifecycle is a set of states, or 'states of being', through which an activity migrates. The activity lifecycle begins when the activity is first created and ends when the activity is destroyed.",
+                "The activity lifecycle is what is referred to when talking about the properties of an activity. It begins when the app saves its first user state, and ends when the user removes stored information",
+                "The activity lifecycle is the default state of an app's out-of-the-box state. It starts when the app is downloaded and ends when the app is deleted",
+                "The activity lifecycle refers to the navigation or \"cycle\" an activity goes through while it's navHost switches between fragments. It begins when when the navHost is initialized in the corresponding layout and never ends."
+            )
         )
     )
 

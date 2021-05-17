@@ -74,6 +74,44 @@ class GameFragment : Fragment() {
                 answers = listOf("Add dependencies for navigation-fragment-ktx and navigation-ui-ktx in the build.gradle (module) file.", "Make sure every Activity class extends the class NavigationActivity.", "Use the NavigationController class as the launch Activity.", "Add <uses-navigation> to the Android manifest file." )),
         Question(text = "Where are the possible routes through your app defined?",
                 answers = listOf("In a file (often called navigation.xml) in the res > navigation folder.", "In a file (often called navigation.xml) in the res > layout folder.", "In a file (often called navigation.xml) in the app > navigation folder.",  "In the android-manifest.xml file in the <navigation> element.")),
+        Question(
+            text = "Your app contains a physics simulation that requires heavy computation to display. Then the user gets a phone call. Which of the following is true?",
+            answers = listOf(
+                "During the phone call, you should stop computing the positions of objects in the physics simulation.",
+                "During the phone call, you should continue computing the positions of objects in the physics simulation.",
+                "N/A",
+                "N/A"
+            )
+        ),
+        Question(
+            text = "Which lifecycle method should you override to pause the simulation when the app is not on the screen?",
+            answers = listOf(
+                "onStop()",
+                "onDestroy()",
+                "onPause()",
+                "onSaveInstanceState()"
+            )
+        ),
+
+        Question(
+            text = "To make a class lifecycle-aware through the Android lifecycle library, which interface should the class implement?",
+            answers = listOf(
+                "LifecycleOwner",
+                "Lifecycle",
+                "Lifecycle.Event",
+                "LifecycleObserver"
+            )
+        ),
+
+        Question(
+            text = "Under which circumstances does the onCreate() method in your activity receive a Bundle with data in it (that is, the Bundle is not null)?",
+            answers = listOf(
+                "The activity is restarted after the device is rotated.",
+                "The activity is started from scratch.",
+                "The activity is resumed after returning from the background.",
+                "The device is rebooted."
+            )
+        ),
 
         Question(
             text = "How do you enable your project to use navigation components?",

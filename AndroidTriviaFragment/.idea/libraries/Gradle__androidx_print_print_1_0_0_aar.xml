@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.print:print:1.0.0@aar">
     <ANNOTATIONS>
+<<<<<<< HEAD
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f953900d75de6bdd2ec7a24bc306826/print-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
@@ -9,6 +10,18 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f953900d75de6bdd2ec7a24bc306826/print-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f953900d75de6bdd2ec7a24bc306826/print-1.0.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f953900d75de6bdd2ec7a24bc306826/print-1.0.0/jars/classes.jar!/" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/177aa890993f6e7764a199ad6789d659/print-1.0.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4a191dfb8598d0a6448d202a63f1b89a/print-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b2109fae3c821b07e49930f0f57812a/print-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5722f9880e2690c86ce041177be9f8f6/print-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f953900d75de6bdd2ec7a24bc306826/print-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/177aa890993f6e7764a199ad6789d659/print-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/177aa890993f6e7764a199ad6789d659/print-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/177aa890993f6e7764a199ad6789d659/print-1.0.0/AndroidManifest.xml" />
+>>>>>>> Practice_10
     </CLASSES>
     <JAVADOC />
     <SOURCES>

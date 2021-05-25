@@ -33,7 +33,7 @@ import com.example.android.navigation.databinding.FragmentGameBinding
 class GameFragment : Fragment() {
 
     enum class QuestionType(val type: Int) {
-        SINGLE_CHOICE(1), MULTI_CHOICE(2)
+        SINGLE_CHOICE(1), MULTI_CHOICE(2), TRUE_OR_FALSE(3)
     }
 
     data class Question(
@@ -303,6 +303,178 @@ class GameFragment : Fragment() {
                 "The activity lifecycle is the default state of an app's out-of-the-box state. It starts when the app is downloaded and ends when the app is deleted",
                 "The activity lifecycle refers to the navigation or \"cycle\" an activity goes through while it's navHost switches between fragments. It begins when when the navHost is initialized in the corresponding layout and never ends."
             )
+        ),
+        Question(
+            text = "UI Controllers are responsible for holding and processing all the data needed for the UI. It should never access your view hierarchy (like view binding object) or hold a reference to the activity or the fragment. True or False?",
+            answers = listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+
+        Question(
+            text = "ViewModel is responsible for drawing views and data to the screen and responding\n" +
+                    " to the user events. True or False?",
+            answers = listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "ViewModel is responsible for holding and processing all the data needed for the UI. It should never\n" +
+                    " access your view hierarchy (like view binding object) or hold a reference to the activity or the fragment.\n" +
+                    " True or False?",
+            answers = listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "Activities and Fragments are responsible for drawing views and data to the screen and responding\n" +
+                    " to the user events. True or False?",
+            answers = listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "UI Controllers are responsible for drawing views and data to the screen and responding to the user events.\n" +
+                    "True or False?",
+            answers = listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "To implement ViewModel in your app, create a Singleton object named ViewModel inside the UI Controller \n" +
+                    "\tand store the data used by the UI within it. True or False?",
+            answers = listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "To implement ViewModel in your app, extend the ViewModel class, which is from the architecture\n" +
+                    " components library, and store app data within that class. True or False?",
+            answers = listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "ViewModel objects are automatically destroyed (just like the activity\n" +
+                    " or a fragment instance) during configuration changes to quickly make room for predefined data\n" +
+                    " for the specific configuration change to be injected via a ViewModel Injector. \n" +
+                    " True or False?",
+            answers = listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question("ViewModel objects are automatically retained (they are not destroyed like the activity\n" +
+                " or a fragment instance) during configuration changes so that data they hold can be accessed\n" +
+                " by the backend logic during configuration changes and Android OS-activated UI Controller destruction. \n" +
+                " True or False?",
+        listOf("False", "True"),
+        QuestionType.TRUE_OR_FALSE
+        ),
+        Question("ViewModel objects are automatically retained (they are not destroyed like the activity\n" +
+                " or a fragment instance) during configuration changes so that data they hold is immediately\n" +
+                " available to the next activity or fragment instance. True or False?",
+            listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question("The ViewModel views the app related data that is destroyed when activity or fragment\n" +
+                " is destroyed and recreated by the Android framework. True or False?",
+            listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question("The ViewModel stores the app related data that isn't destroyed when activity\n" +
+                " or fragment is destroyed and recreated by the Android framework. True or False?",
+            listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question("The ViewModel is a model of the app's data that is stored in the DataBase.",
+            listOf("False", "True"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question("The ViewModel is a model of the app's data that is displayed in the views.",
+            listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+            text = "Where should the decision making logic of your app go?",
+            answers = listOf("ViewModel", "Repository", "UI Controller", "Database"),
+            QuestionType.SINGLE_CHOICE
+        ),
+        Question(
+            text = "The Android system can destroy UI controllers at any time based on certain user interactions\n" +
+                    " or because of system conditions like low memory. Because these events aren't under your control,\n" +
+                    " you shouldn't store any app data or state in UI controllers.",
+            answers = listOf("True", "False"),
+            QuestionType.TRUE_OR_FALSE
+        ),
+        Question(
+        text = "How do UI Controllers control the UI? Select all that apply.",
+        answers = listOf(
+            "They draw views on the screen",
+            "They capture user events",
+            "They store data from within the app",
+            "They handle decision making logic"
+        ),
+            QuestionType.MULTI_CHOICE,
+            2
+            ),
+        Question(
+            text = "In an app, what are the UI Controllers? Select all that apply.",
+            answers = listOf(
+                "Activities",
+                "Fragments",
+                "Layouts",
+                "Nav Controllers"
+            ),
+            QuestionType.MULTI_CHOICE,
+            2
+        ),
+        Question(
+            text = "What are Models?",
+            answers = listOf(
+                "Components that are responsible for handling the data for an app.",
+                "Components that are responsible for how the app will look in different state changes.",
+                "Components that provide a general overview of what the app will do",
+                "Components that have the responsibility of showcasing the app to the user."
+            )
+        ),
+        Question(
+            text = "What is the \"separation of concerns\" design principle?",
+            answers = listOf(
+                "The app should be divided into classes, each with separate responsibilities.",
+                "The app should separate classes by Dependency uses in order to separate responsibilities.",
+                "The app's data should be primitive objects that are separate from the functions that transform them.",
+                "The app should have a full list of components to provide to the Android OS that will assist the OS with separating the ways it handles the internals of the app."
+            )
+        ),
+        Question(
+            text = "What are the most common architectural principles? Select all that apply.",
+            answers = listOf(
+                "separation of concerns",
+                "driving the UI with a model",
+                "binding data to xml layouts",
+                "Version Control Tendencies"
+            ),
+            QuestionType.MULTI_CHOICE,
+            2
+        ),
+        Question(
+            text = "What are the main classes (or components) in Android Architecture?",
+            answers = listOf(
+                "UI Controller, ViewModel, LiveData, Room",
+                "Main Function, Navigation, DataBinding, savedInstanceState()",
+                "Data Class, Sealed Class, Enums Class, Open Class, Abstract Class",
+                "Nav Drawer, activity_main.xml, Menu Resource Class, Dependency classes"
+            )
+        ),
+        Question(
+            text = "What is a Backing Property in Kotlin?",
+            answers = listOf(
+                "A backing property allows you to return something from a getter other than the exact object.",
+                "A backing property allows the UI Controller to access read/write properties of the object.",
+                "A backing property provides a backup variable for the object to store previous states.",
+                "A backing property is an object that can store all of the states of the objects in the file."
+            )
+        ),
+        Question(
+            text = "What should always be true about the data in your ViewModel?",
+            answers = listOf(
+                "mutable data within the ViewModel should never be exposed or modifiable by an outside class.",
+                "Mutable data inside the ViewModel should always be private.",
+                "Data should be able to go through changes that are implemented by other classes.",
+                "Data should stay mutable so that other classes can change its values."
+            )
         )
     )
 
@@ -314,6 +486,7 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private val numQuestions = Math.min((questions.size + 1) / 2, 10)
     private var isMulti: Boolean = false
+    private var isTOF: Boolean = false
 
 
 
@@ -337,7 +510,67 @@ class GameFragment : Fragment() {
         binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER")
         { view: View ->
 
-            if (!isMulti && currentQuestion.numberOfCorrectAnswersForMulti == null) {
+            if (isMulti && currentQuestion.numberOfCorrectAnswersForMulti == null) {
+                val checkedIds: List<CheckBox> = listOf(
+                    binding.firstAnswerCheckBox,
+                    binding.secondAnswerCheckBox,
+                    binding.thirdAnswerCheckBox,
+                    binding.fourthAnswerCheckBox
+                )
+                // Do nothing if nothing is checked (id == -1)
+                val correctAnswers = currentQuestion.numberOfCorrectAnswersForMulti
+                var myCorrectAnswers: Int = 0
+                for (checked in checkedIds) {
+                    for (answer in currentQuestion.answers) {
+                        if (checked.isChecked && currentQuestion.answers.indexOf(answer) < correctAnswers!! && checked.text == answer) {
+                            myCorrectAnswers++
+                        }
+                    }
+
+                }
+                if (correctAnswers == myCorrectAnswers) {
+                    questionIndex++
+                    // Advance to the next question
+                    if (questionIndex < numQuestions) {
+                        currentQuestion = questions[questionIndex]
+                        setQuestion()
+                        binding.invalidateAll()
+                    } else {
+                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(questionIndex, numQuestions))
+
+                    }
+                } else {
+                    findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
+
+                }
+
+            } else if (isTOF) {
+                val checkedId = binding.TOFRadioGroup.checkedRadioButtonId
+
+                if (-1 != checkedId) {
+                    var answerIndex = 0
+                    when (checkedId) {
+                        R.id.false_button -> answerIndex = 1
+                    }
+                    if (answers[answerIndex] == currentQuestion.answers[0]) {
+                        questionIndex++
+                        // Advance to the next question
+                        if (questionIndex < numQuestions) {
+                            currentQuestion = questions[questionIndex]
+                            setQuestion()
+                            binding.invalidateAll()
+                        } else {
+                            // We've won!  Navigate to the gameWonFragment.
+                            findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(questionIndex, numQuestions))
+                        }
+                    } else {
+                        // Game over! A wrong answer sends us to the gameOverFragment.
+                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
+
+                    }
+
+                }
+            } else {
                 val checkedId = binding.questionRadioGroup.checkedRadioButtonId
                 // Do nothing if nothing is checked (id == -1)
                 if (-1 != checkedId) {
@@ -366,41 +599,6 @@ class GameFragment : Fragment() {
 
                     }
                 }
-            } else {
-                val checkedIds: List<CheckBox> = listOf(
-                    binding.firstAnswerCheckBox,
-                    binding.secondAnswerCheckBox,
-                    binding.thirdAnswerCheckBox,
-                    binding.fourthAnswerCheckBox
-                )
-                // Do nothing if nothing is checked (id == -1)
-                val correctAnswers = currentQuestion.numberOfCorrectAnswersForMulti
-                var myCorrectAnswers: Int = 0
-                    for (checked in checkedIds) {
-                        for (answer in currentQuestion.answers) {
-                            if (checked.isChecked && currentQuestion.answers.indexOf(answer) < correctAnswers!! && checked.text == answer) {
-                                myCorrectAnswers++
-                            }
-                        }
-
-                }
-                    if (correctAnswers == myCorrectAnswers) {
-                        questionIndex++
-                        // Advance to the next question
-                        if (questionIndex < numQuestions) {
-                            currentQuestion = questions[questionIndex]
-                            setQuestion()
-                            binding.invalidateAll()
-                        } else {
-                            findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(questionIndex, numQuestions))
-
-                        }
-                    } else {
-                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
-
-                    }
-
-
 
             }
         }
@@ -410,15 +608,28 @@ class GameFragment : Fragment() {
     }
 
     private fun setSingleOrMultiTypeQuestions() {
-        if (currentQuestion.questionType == QuestionType.MULTI_CHOICE) {
-            binding.questionRadioGroup.visibility = View.GONE
-            binding.checkBoxLinearLayout.visibility = View.VISIBLE
-            isMulti = true
-        } else {
-            binding.questionRadioGroup.visibility = View.VISIBLE
-            binding.checkBoxLinearLayout.visibility = View.GONE
-            isMulti = false
+        when (currentQuestion.questionType) {
+            QuestionType.MULTI_CHOICE -> {
+                binding.questionRadioGroup.visibility = View.GONE
+                binding.checkBoxLinearLayout.visibility = View.VISIBLE
+                isMulti = true
+                isTOF = false
+            }
+            QuestionType.TRUE_OR_FALSE -> {
+                binding.TOFRadioGroup.visibility = View.VISIBLE
+                binding.questionRadioGroup.visibility = View.GONE
+                binding.checkBoxLinearLayout.visibility = View.GONE
+                isMulti = false
+                isTOF = true
+            }
+            else -> {
+                binding.TOFRadioGroup.visibility = View.GONE
+                binding.questionRadioGroup.visibility = View.VISIBLE
+                binding.checkBoxLinearLayout.visibility = View.GONE
+                isMulti = false
+                isTOF = false
 
+            }
         }
     }
 
